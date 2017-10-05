@@ -5,9 +5,9 @@ baseline02: spec
 	spec for: #'common' do: [
 		spec blessing: #'baseline'.
 		spec repository: 'http://smalltalkhub.com/mc/hernan/CommonUtils/main/'.
-		spec project: 'NeoCSV' with: [
+		spec project: 'Grease' with: [
 				spec
-					className: #ConfigurationOfNeoCSV;
+					className: #ConfigurationOfGrease;
 					versionString: #'stable';
-					repository: 'http://smalltalkhub.com/mc/Pharo/MetaRepoForPharo50/main/' ].
+					repository: 'http://smalltalkhub.com/mc/Pharo/MetaRepoForPharo60/main/' ].
 		spec package: #CommonUtils. ].

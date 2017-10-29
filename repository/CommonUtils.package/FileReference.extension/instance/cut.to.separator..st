@@ -4,9 +4,9 @@ cut: indexes to: outputFileStream separator: aCharacter
 
 	This is similar to UNIX command : cut -f i1,i2,i3 file 
 	"
-	[ (Smalltalk hasClassNamed: #NeoCSVReader)
+	(Smalltalk hasClassNamed: #NeoCSVReader)
 			ifFalse: [ ^ self informMessage: 'This method requires NeoCSVReader class' ].
-		(NeoCSVReader on: self readStream)
+	[ ((Smalltalk at: #NeoCSVReader) on: self readStream)
 			separator: Character tab;
 			rowsDo: [ : r | 
 				outputFileStream 

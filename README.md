@@ -14,7 +14,7 @@ Common method utilities for Pharo Smalltalk
 ```smalltalk
 Metacello new	
   baseline: 'CommonUtils';	
-  repository: 'github://hernanmd/CommonUtils';	
+  repository: 'github://hernanmd/CommonUtils/repository';	
   load.
 ```
 

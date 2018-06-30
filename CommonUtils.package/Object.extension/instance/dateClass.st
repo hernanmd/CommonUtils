@@ -1,5 +1,0 @@
-*CommonUtils
-dateClass
-	" Answer the class used to access dates "
-
-	^ self class dateClass

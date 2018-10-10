@@ -12,4 +12,4 @@ baseline: spec
 					
 			spec 
 				group: 'default' with: #('CommonUtils');
-				group: 'Tests'		with: #('CommonUtils' CommonUtils-Tests) ]
+				group: 'Tests'		with: #('CommonUtils' 'CommonUtils-Tests') ]

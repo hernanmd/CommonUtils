@@ -18,6 +18,15 @@ Metacello new
   load.
 ```
 
+## Load with Tests Group
+
+```smalltalk
+Metacello new	
+  baseline: 'CommonUtils';	
+  repository: 'github://hernanmd/CommonUtils/repository';	
+  load: #('Tests')
+```
+
 # Usage
 
 Just browse the CommonUtils package. Eveything is added as an extension method of a standard library class. Grease is automatically installed as a dependency. If you want to add a very common method missing in Pharo, please open an issue.

@@ -7,4 +7,9 @@ asFileSize
 		into: [ :value :each |
 			value < 1024
 				ifFalse: [ value // 1024 ]
-				ifTrue: [ ^ value asString , ' ' , each ] ]
+				ifTrue: [ 
+					^ String streamContents: [ : stream |
+							stream 
+								nextPutAll: value asString;
+								space;
+								nextPutAll: each ] ] ]

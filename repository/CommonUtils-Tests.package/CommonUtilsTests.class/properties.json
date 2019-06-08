@@ -5,7 +5,11 @@
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
-	"instvars" : [ ],
+	"instvars" : [
+		"filesystem",
+		"reference",
+		"handle"
+	],
 	"name" : "CommonUtilsTests",
 	"type" : "normal"
 }

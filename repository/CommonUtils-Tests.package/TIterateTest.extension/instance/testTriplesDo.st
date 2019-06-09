@@ -1,4 +1,4 @@
-testing
+*CommonUtils-Tests
 testTriplesDo
 
 	| testCol resultCol |

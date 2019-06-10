@@ -1,6 +1,5 @@
- [![license-badge](https://img.shields.io/badge/license-MIT-blue.svg)](https://img.shields.io/badge/license-MIT-blue.svg)
+[![license-badge](https://img.shields.io/badge/license-MIT-blue.svg)](https://img.shields.io/badge/license-MIT-blue.svg)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
-
 
 # Description
 
@@ -29,7 +28,18 @@ Metacello new
 
 # Usage
 
-Just browse the CommonUtils package. Eveything is added as an extension method of a standard library class. Grease is automatically installed as a dependency. If you want to add a very common method missing in Pharo, please open an issue.
+Just browse the CommonUtils package to view the methods provided by CommonUtils package: 
+
+```smalltalk
+'CommonUtils' asPackage browse.
+```
+
+Eveything is added as an extension method of a standard library class. Additionally the following libraries are installed as dependencies:
+
+- [Grease](https://github.com/SeasideSt/Grease)
+- [NeoCSV](https://github.com/svenvc/NeoCSV)
+
+If you want to add a very common method missing in Pharo, please open an issue.
 
 # Contribute
 

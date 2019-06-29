@@ -138,26 +138,27 @@ Object class >> requestFileNameForOpen: extensionString [
 ]
 
 { #category : #'*CommonUtils' }
-Object >> requestFileNameForSave: extensionString [
-	" Private - Request file name to the user. Answer a <String> with the full path name, or an empty <String> meaning dialog was cancelled "
-	
-	^ self class requestFileNameForSave: extensionString
-]
-
-{ #category : #'*CommonUtils' }
 Object class >> requestFileNameForSave: extensionString [
 	" Private - Request file name to the user. Answer a <String> with the full path name, or an empty <String> meaning dialog was cancelled "
 	
 	| filename |
+	
 	filename := UITheme builder
-		fileSave: 'Save as ' , extensionString
+		chooseForSaveFileReference: 'Save as ' , extensionString
 		extensions: (Array with: extensionString)
-		path: nil.
+		path: FileSystem workingDirectory.
 	filename 
 		ifNil: [ 
 			self informMessage: 'Saving cancelled'. 
 			^ String empty ].
 	^ filename fullName
+]
+
+{ #category : #'*CommonUtils' }
+Object >> requestFileNameForSave: extensionString [
+	" Private - Request file name to the user. Answer a <String> with the full path name, or an empty <String> meaning dialog was cancelled "
+	
+	^ self class requestFileNameForSave: extensionString
 ]
 
 { #category : #'*CommonUtils' }
@@ -212,16 +213,6 @@ Object >> requestMessage: aString [
 ]
 
 { #category : #'*CommonUtils' }
-Object class >> requestText: aString initialAnswer: initString title: titleString [
-	" Open a modal message dialog requesting aString with titleString as title. Answer <nil> if dialog was cancelled "
-
-	^ UIManager default 
-		request: aString
-		initialAnswer: initString
-		title: titleString
-]
-
-{ #category : #'*CommonUtils' }
 Object >> requestText: aString initialAnswer: initString title: titleString [
 	" Open a modal message dialog requesting aString with titleString as title "
 	
@@ -233,12 +224,12 @@ Object >> requestText: aString initialAnswer: initString title: titleString [
 ]
 
 { #category : #'*CommonUtils' }
-Object class >> requestText: aString title: titleString [
+Object class >> requestText: aString initialAnswer: initString title: titleString [
 	" Open a modal message dialog requesting aString with titleString as title. Answer <nil> if dialog was cancelled "
 
-	^ self 
-		requestText: aString 
-		initialAnswer: String empty 
+	^ UIManager default 
+		request: aString
+		initialAnswer: initString
 		title: titleString
 ]
 
@@ -248,6 +239,16 @@ Object >> requestText: aString title: titleString [
 	
 	^ self class requestText: aString title: titleString
 
+]
+
+{ #category : #'*CommonUtils' }
+Object class >> requestText: aString title: titleString [
+	" Open a modal message dialog requesting aString with titleString as title. Answer <nil> if dialog was cancelled "
+
+	^ self 
+		requestText: aString 
+		initialAnswer: String empty 
+		title: titleString
 ]
 
 { #category : #'*CommonUtils' }

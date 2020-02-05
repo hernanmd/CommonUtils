@@ -27,9 +27,28 @@ Stream >> nextPutAll: aCollection between: firstChar and: lastChar [
 ]
 
 { #category : #'*CommonUtils' }
+Stream >> nextPutAll: aCollection between: firstChar and: lastChar onNilPut: aString [
+	" Append the elements of aCollection between the association Character elements onto the stream. "
+
+	self nextPut: firstChar.
+	aCollection
+		ifNil: [ self nextPutAll: aString ]
+		ifNotNil: [ self nextPutAll: aCollection asString ].
+	self nextPut: lastChar
+]
+
+{ #category : #'*CommonUtils' }
+Stream >> nextPutAll: aCollection onNilPut: aString [
+	" Append the elements of aCollection between the association Character elements onto the stream. "
+
+	aCollection
+		ifNil: [ self nextPutAll: aString ]
+		ifNotNil: [ self nextPutAll: aCollection asString ]
+]
+
+{ #category : #'*CommonUtils' }
 Stream >> nextPutFirst: aCollection between: anAssociation [
-	" Append the first elements of aCollection between the association 
-	elements onto the stream. Answer aCollection. "
+	" Append the first elements of aCollection between the association elements onto the stream. Answer aCollection. "
 	
 	| subCol |
 	subCol := aCollection size >= 15

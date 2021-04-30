@@ -8,7 +8,7 @@ Class {
 BaselineOfCommonUtils >> baseline: spec [
 	<baseline>
 	spec
-		for: #common
+		for: #(common)
 		do: [ 
 			spec
 				baseline: 'Grease'
@@ -30,9 +30,9 @@ BaselineOfCommonUtils >> baseline: spec [
 				with: [ spec requires: 'CommonUtils' ].
 
 			spec 
-				for: #(#'pharo9.x') 
+				for: #'pharo9.x' 
 				do: [ 
-					spec package: 'CommonUtils' with: [ spec requires: #('Grease' 'NeoCSV') ].
+					spec package: 'CommonUtils' with: [ spec requires: #('CommonUtils-Pharo9') ].
 					spec package: 'CommonUtils-Pharo9' ].
 
 			spec 

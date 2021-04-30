@@ -12,20 +12,30 @@ BaselineOfCommonUtils >> baseline: spec [
 		do: [ 
 			spec
 				baseline: 'Grease'
-				with: [ spec loads: #('Core'); repository: 'github://GsDevKit/Grease:master/repository' ];
-				baseline: 'NeoCSV'
-				with: [ spec repository: 'github://svenvc/NeoCSV/repository' ].
+				with: [ 
+					spec 
+						loads: #('Core'); 
+						repository: 'github://GsDevKit/Grease:master/repository' ];
 
-			spec package: 'CommonUtils' 			with: [ spec requires: #('Grease' 'NeoCSV') ].
-			spec package: 'CommonUtils-Tests'		with: [ spec requires: 'CommonUtils' ].
-					
+				baseline: 'NeoCSV'
+				with: [ 
+					spec 
+						loads: #('core');
+						repository: 'github://svenvc/NeoCSV/repository' ].
+
+			spec 
+				package: 'CommonUtils' 
+				with: [ spec requires: #('Grease' 'NeoCSV') ];
+				package: 'CommonUtils-Tests'
+				with: [ spec requires: 'CommonUtils' ].
+
+			spec 
+				for: #(#'pharo9.x') 
+				do: [ 
+					spec package: 'CommonUtils' with: [ spec requires: #('Grease' 'NeoCSV') ].
+					spec package: 'CommonUtils-Pharo9' ].
+
 			spec 
 				group: 'default'	with: #('CommonUtils');
-				group: 'Tests'		with: #('CommonUtils' 'CommonUtils-Tests') ].
-
-	spec 
-		for: #(#'pharo9.x') 
-		do: [ 
-			spec package: 'CommonUtils' with: [ spec requires: #('Grease' 'NeoCSV') ].
-			spec package: 'CommonUtils-Pharo9' ].
+				group: 'Tests'		with: #('CommonUtils' 'CommonUtils-Tests') ]
 ]

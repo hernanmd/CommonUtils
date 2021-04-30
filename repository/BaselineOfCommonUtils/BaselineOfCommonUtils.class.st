@@ -1,7 +1,7 @@
 Class {
 	#name : #BaselineOfCommonUtils,
 	#superclass : #BaselineOf,
-	#category : 'BaselineOfCommonUtils'
+	#category : #BaselineOfCommonUtils
 }
 
 { #category : #baseline }
@@ -20,6 +20,12 @@ BaselineOfCommonUtils >> baseline: spec [
 			spec package: 'CommonUtils-Tests'		with: [ spec requires: 'CommonUtils' ].
 					
 			spec 
-				group: 'default' with: #('CommonUtils');
-				group: 'Tests'		with: #('CommonUtils' 'CommonUtils-Tests') ]
+				group: 'default'	with: #('CommonUtils');
+				group: 'Tests'		with: #('CommonUtils' 'CommonUtils-Tests') ].
+
+	spec 
+		for: #(#'pharo9.x') 
+		do: [ 
+			spec package: 'CommonUtils' with: [ spec requires: #('Grease' 'NeoCSV') ].
+			spec package: 'CommonUtils-Pharo9' ].
 ]

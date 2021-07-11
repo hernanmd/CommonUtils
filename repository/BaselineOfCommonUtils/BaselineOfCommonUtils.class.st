@@ -15,7 +15,7 @@ BaselineOfCommonUtils >> baseline: spec [
 				with: [ 
 					spec 
 						loads: #('Core'); 
-						repository: 'github://GsDevKit/Grease:master/repository' ];
+						repository: 'github://SeasideSt/Grease:v1.5.x/repository' ];
 
 				baseline: 'NeoCSV'
 				with: [ 

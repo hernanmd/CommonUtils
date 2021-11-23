@@ -77,6 +77,24 @@ SequenceableCollection >> tripleDo: aBlock [
 ]
 
 { #category : #'*CommonUtils' }
+SequenceableCollection >> tripleSelect: aBlock [
+    " Assume receiver with 3-element triples. The block is called with 3 arguments for each 3 elements in the receiver, stepping by one. If there's an odd number of items, ignore the last one(s). "
+
+	| each1 each2 each3 |
+	^ self class new: self size * 3 streamContents: [ : stream|
+		1 to: self size - 2 do: [ :index |
+			(aBlock 			
+				value: (each1 := self at: index) 
+				value: (each2 := self at: index + 1)
+				value: (each3 := self at: index + 2))
+					ifTrue: [ 
+						stream 
+							nextPut: each1;
+							nextPut: each2;
+							nextPut: each3 ] ] ]
+]
+
+{ #category : #'*CommonUtils' }
 SequenceableCollection >> triplesDo:aBlock [
     " Assume receiver with 3-element triples. The block is called with 3 arguments for each 3 elements in the receiver, stepping by 3. If there's an odd number of items, ignore the last one(s). "
 

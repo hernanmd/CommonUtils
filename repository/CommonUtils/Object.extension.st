@@ -213,6 +213,16 @@ Object >> requestMessage: aString [
 ]
 
 { #category : #'*CommonUtils' }
+Object class >> requestText: aString initialAnswer: initString title: titleString [
+	" Open a modal message dialog requesting aString with titleString as title. Answer <nil> if dialog was cancelled "
+
+	^ UIManager default 
+		request: aString
+		initialAnswer: initString
+		title: titleString
+]
+
+{ #category : #'*CommonUtils' }
 Object >> requestText: aString initialAnswer: initString title: titleString [
 	" Open a modal message dialog requesting aString with titleString as title "
 	
@@ -221,16 +231,6 @@ Object >> requestText: aString initialAnswer: initString title: titleString [
 		initialAnswer: initString 
 		title: titleString
 
-]
-
-{ #category : #'*CommonUtils' }
-Object class >> requestText: aString initialAnswer: initString title: titleString [
-	" Open a modal message dialog requesting aString with titleString as title. Answer <nil> if dialog was cancelled "
-
-	^ UIManager default 
-		request: aString
-		initialAnswer: initString
-		title: titleString
 ]
 
 { #category : #'*CommonUtils' }

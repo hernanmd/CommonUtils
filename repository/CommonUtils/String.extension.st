@@ -19,6 +19,14 @@ String >> includesSpecialCharacter [
 ]
 
 { #category : #'*CommonUtils' }
+String >> isValidClassVarName [
+	" Answer <true> if the receiver is valid as class variable name "
+
+	self ifEmpty: [ ^ false ].
+	^ self first isLetter and: [ self first isUppercase and: [ self includesDigit not and: [ self includesSpecialCharacter not ] ] ]
+]
+
+{ #category : #'*CommonUtils' }
 String >> isValidInstVarName [
 	" Answer <true> if the receiver is valid as instance variable name "
 

@@ -4,7 +4,7 @@ Class {
 	#category : #BaselineOfCommonUtils
 }
 
-{ #category : #baseline }
+{ #category : #baselines }
 BaselineOfCommonUtils >> baseline: spec [
 	<baseline>
 	spec
@@ -21,16 +21,20 @@ BaselineOfCommonUtils >> baseline: spec [
 				with: [ 
 					spec 
 						loads: #('core');
-						repository: 'github://svenvc/NeoCSV/repository' ].
+						repository: 'github://svenvc/NeoCSV:v15/repository' ].
 
 			spec 
-				package: 'CommonUtils' 
-				with: [ spec requires: #('Grease' 'NeoCSV') ];
-				package: 'CommonUtils-Tests'
-				with: [ spec requires: 'CommonUtils' ].
+				package: 'CommonUtils' 			with: [ spec requires: #('Grease' 'NeoCSV') ];
+				package: 'CommonUtils-Tests'	with: [ spec requires: 'CommonUtils' ].
 
 			spec 
 				for: #'pharo9.x' 
+				do: [ 
+					spec package: 'CommonUtils' with: [ spec requires: #('CommonUtils-Pharo9') ].
+					spec package: 'CommonUtils-Pharo9' ].
+				
+			spec 
+				for: #(#'pharo10.x' #'pharo11.x')
 				do: [ 
 					spec package: 'CommonUtils' with: [ spec requires: #('CommonUtils-Pharo9') ].
 					spec package: 'CommonUtils-Pharo9' ].
